@@ -1,0 +1,72 @@
+{% extends "lab_8/layout.html" %}
+
+{% block body %}
+    <select>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+    </select>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Title</th>
+                <th>Race</th>
+                <th>Profession</th>
+                <th>Level</th>
+                <th>Birthday</th>
+                <th>Banned</th>
+            </tr>
+        </thead>
+        <tbody id="table">
+
+        </tbody>
+    </table>
+    <div id="blockBtn"></div>
+    <div class="myForm">
+        <form action="http://127.0.0.1:8000/server/" method="post">
+            {% csrf_token %}
+            <input type="text" name="name">
+            <input type="text" name="title">
+            <select name="race" id="">
+                <option value="1">HOBBIT</option>
+                <option value="2">TROLL</option>
+                <option value="3">ORC</option>
+                <option value="4">GIANT</option>
+                <option value="5">ELF</option>
+                <option value="6">DWARF</option>
+                <option value="7">HUMAN</option>
+            </select>
+            <select name="profession" id="">
+                <option value="1">DRUID</option>
+                <option value="2">NAZGUL</option>
+                <option value="3">WARLOCK</option>
+                <option value="4">PALADIN</option>
+                <option value="5">CLERIC</option>
+                <option value="6">SORCERER</option>
+                <option value="7">ROGUE</option>
+                <option value="8">WARRIOR</option>
+            </select>
+            <input type="number" name="level">
+            <input type="date" name="birthday" id="">
+            <input type="checkbox" name="banned">
+            <input type="submit">
+        </form>
+    </div>
+{% endblock %}

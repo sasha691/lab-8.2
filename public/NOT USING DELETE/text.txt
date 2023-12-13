@@ -1,0 +1,32 @@
+const sqlite3 = require('sqlite3').verbose();
+
+// Шлях до файлу бази даних SQLite3
+const dbPath = './mydatabase.sqlite3'; // Замініть це на ваш шлях до бази даних
+
+// Створення об'єкту бази даних
+let db = new sqlite3.Database(dbPath, sqlite3.OPEN_READWRITE, (err) => {
+  if (err) {
+    console.error(err.message);
+  } else {
+    console.log('Підключено до бази даних SQLite3');
+  }
+});
+
+// Приклад запиту до бази даних
+db.serialize(() => {
+  db.each("SELECT * FROM my_table", (err, row) => {
+    if (err) {
+      console.error(err.message);
+    }
+    console.log(row); // Рядок, отриманий з бази даних
+  });
+});
+
+// Закриття з'єднання з базою даних після виконання запиту
+db.close((err) => {
+  if (err) {
+    console.error(err.message);
+  } else {
+    console.log('З'єднання з базою даних закрито');
+  }
+});
